@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Contact App</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="list_view">ListView</string>
+    <string name="recycler_view">RecyclerView</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
