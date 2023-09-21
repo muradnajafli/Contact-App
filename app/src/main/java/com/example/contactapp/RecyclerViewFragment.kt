@@ -1,6 +1,7 @@
 package com.example.contactapp
 
 import android.Manifest
+import android.annotation.SuppressLint
 
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -8,7 +9,8 @@ import android.provider.ContactsContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.app.ActivityCompat
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,6 +22,19 @@ class RecyclerViewFragment : Fragment() {
     private val contactsList = mutableListOf<Contact>()
     private lateinit var adapter: ContactAdapter
     private lateinit var binding: FragmentRecyclerViewBinding
+
+    @SuppressLint("NotifyDataSetChanged")
+    private val requestPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted: Boolean ->
+        if (isGranted) {
+            getPhoneContacts()
+            adapter.notifyDataSetChanged()
+        } else {
+            Toast.makeText(requireContext(), "Permission denied.", Toast.LENGTH_SHORT).show()
+        }
+    }
+
 
 
     override fun onCreateView(
@@ -53,11 +68,7 @@ class RecyclerViewFragment : Fragment() {
     }
 
     private fun requestPermission() {
-        ActivityCompat.requestPermissions(
-            requireActivity(),
-            arrayOf(Manifest.permission.READ_CONTACTS),
-            1
-        )
+        requestPermissionLauncher.launch(Manifest.permission.READ_CONTACTS)
     }
 
 
