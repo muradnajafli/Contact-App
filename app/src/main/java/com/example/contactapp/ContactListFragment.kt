@@ -48,8 +48,8 @@ class ContactListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         adapter = ContactAdapter()
-        adapter.setContext(requireContext()) // Context'i adapter'a ayarla
-        adapter.setContactsList(contactsList) // Verileri adapter'a ayarla
+        adapter.setContext(requireContext())
+        adapter.setContactsList(contactsList)
 
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter
