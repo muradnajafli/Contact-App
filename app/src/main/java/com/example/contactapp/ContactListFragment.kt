@@ -18,7 +18,6 @@ import com.example.contactapp.data.Contact
 import com.example.contactapp.databinding.FragmentRecyclerViewBinding
 
 class ContactListFragment : Fragment() {
-
     private val contactsList = mutableListOf<Contact>()
     private lateinit var adapter: ContactAdapter
     private lateinit var binding: FragmentRecyclerViewBinding
