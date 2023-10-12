@@ -17,26 +17,33 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
 
+        setupDrawer()
+        setupNavigation()
+    }
 
+    private fun setupDrawer() {
         toggle = ActionBarDrawerToggle(this, binding.drawerLayout, R.string.open, R.string.close)
         binding.drawerLayout.addDrawerListener(toggle)
-
         toggle.syncState()
-
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
 
+    private fun setupNavigation() {
         binding.navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.listView -> {}
                 R.id.recyclerView -> {
-                    val fragment = ContactListFragment()
-                    supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragment).commit()
-                    binding.drawerLayout.closeDrawers()
+                    showContactListFragment()
                 }
-
             }
+            binding.drawerLayout.closeDrawers()
             true
         }
+    }
+
+    private fun showContactListFragment() {
+        val fragment = ContactListFragment()
+        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragment).commit()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -45,6 +52,4 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-
-
 }
