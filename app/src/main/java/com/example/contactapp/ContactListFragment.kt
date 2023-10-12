@@ -32,9 +32,7 @@ class ContactListFragment : Fragment() {
             Toast.makeText(requireContext(), "Permission denied.", Toast.LENGTH_SHORT).show()
         }
     }
-
-
-
+    
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -70,7 +68,6 @@ class ContactListFragment : Fragment() {
     private fun requestPermission() {
         requestPermissionLauncher.launch(Manifest.permission.READ_CONTACTS)
     }
-
 
     private fun getPhoneContacts() {
         val cursor = requireActivity().contentResolver.query(
