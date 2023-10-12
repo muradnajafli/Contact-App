@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.contactapp.data.Contact
 import com.example.contactapp.databinding.FragmentRecyclerViewBinding
 
-class RecyclerViewFragment : Fragment() {
+class ContactListFragment : Fragment() {
 
     private val contactsList = mutableListOf<Contact>()
     private lateinit var adapter: ContactAdapter
@@ -29,7 +29,6 @@ class RecyclerViewFragment : Fragment() {
     ) { isGranted: Boolean ->
         if (isGranted) {
             getPhoneContacts()
-            adapter.notifyDataSetChanged()
         } else {
             Toast.makeText(requireContext(), "Permission denied.", Toast.LENGTH_SHORT).show()
         }
@@ -48,10 +47,12 @@ class RecyclerViewFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = ContactAdapter(contactsList)
+        adapter = ContactAdapter()
+        adapter.setContext(requireContext()) // Context'i adapter'a ayarla
+        adapter.setContactsList(contactsList) // Verileri adapter'a ayarla
+
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter
-
 
         if (checkPermission()) {
             getPhoneContacts()
@@ -94,5 +95,6 @@ class RecyclerViewFragment : Fragment() {
                 contactsList.add(contact)
             }
         }
+        adapter.setContactsList(contactsList)
     }
 }

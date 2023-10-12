@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
             when (menuItem.itemId) {
                 R.id.listView -> {}
                 R.id.recyclerView -> {
-                    val fragment = RecyclerViewFragment()
+                    val fragment = ContactListFragment()
                     supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragment).commit()
                     binding.drawerLayout.closeDrawers()
                 }

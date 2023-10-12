@@ -1,5 +1,6 @@
 package com.example.contactapp
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -9,45 +10,49 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.contactapp.data.Contact
 import com.example.contactapp.databinding.ItemContactBinding
 
-class ContactAdapter(
-    private val contactList: List<Contact>
-) : RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() {
+class ContactAdapter : RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() {
+    private var contactList: List<Contact> = emptyList()
+    private var context: Context? = null
 
-    inner class ContactViewHolder(binding: ItemContactBinding) : RecyclerView.ViewHolder(binding.root) {
-        val name = binding.nameTextView
-        val number = binding.numberTextView
+    inner class ContactViewHolder(val binding: ItemContactBinding) : RecyclerView.ViewHolder(binding.root)
 
-        init {
-            itemView.setOnClickListener {
-                val position = adapterPosition
-                if (position != RecyclerView.NO_POSITION) {
-                    val clickedContact = contactList[position]
-                    val contactNumber = clickedContact.phoneNumber
-                    performCall(itemView.context, contactNumber)
-                }
-            }
-        }
-
+    @SuppressLint("NotifyDataSetChanged")
+    fun setContactsList(contacts: List<Contact>) {
+        contactList = contacts
+        notifyDataSetChanged()
     }
-    private fun performCall(context: Context, contactNumber: String) {
+
+    fun setContext(context: Context) {
+        this.context = context
+    }
+
+    private fun performCall(contactNumber: String) {
         val intent = Intent(Intent.ACTION_DIAL)
         intent.data = Uri.parse("tel:$contactNumber")
-        context.startActivity(intent)
+        context?.startActivity(intent)
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
-        return ContactViewHolder(ItemContactBinding.inflate(
-            LayoutInflater.from(parent.context),
-            parent, false))
+        val binding = ItemContactBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ContactViewHolder(binding)
     }
-
 
     override fun onBindViewHolder(holder: ContactViewHolder, position: Int) {
         val item = contactList[position]
-        holder.name.text = item.name
-        holder.number.text = item.phoneNumber
+        onBind(holder, item)
     }
 
     override fun getItemCount() = contactList.size
+
+    private fun onBind(holder: ContactViewHolder, contact: Contact) {
+        val contactHolder = holder.binding
+        contactHolder.nameTextView.text = contact.name
+        contactHolder.numberTextView.text = contact.phoneNumber
+
+        contactHolder.root.setOnClickListener {
+            context?.let {
+                performCall(contact.phoneNumber)
+            }
+        }
+    }
 }
