@@ -6,7 +6,11 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import com.example.contactapp.databinding.ActivityMainBinding
+import com.example.contactapp.presentation.ContactsFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var toggle: ActionBarDrawerToggle
@@ -33,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             when (menuItem.itemId) {
                 R.id.listView -> {}
                 R.id.recyclerView -> {
-                    showContactListFragment()
+                    showContactsFragment()
                 }
             }
             binding.drawerLayout.closeDrawers()
@@ -41,8 +45,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun showContactListFragment() {
-        val fragment = ContactListFragment()
+    private fun showContactsFragment() {
+        val fragment = ContactsFragment()
         supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragment).commit()
     }
 
