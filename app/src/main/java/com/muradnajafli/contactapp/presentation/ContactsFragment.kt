@@ -1,4 +1,4 @@
-package com.example.contactapp.presentation
+package com.muradnajafli.contactapp.presentation
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.contactapp.databinding.FragmentContactsBinding
+import com.muradnajafli.contactapp.databinding.FragmentContactsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

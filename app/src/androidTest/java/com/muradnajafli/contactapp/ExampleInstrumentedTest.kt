@@ -1,4 +1,4 @@
-package com.example.contactapp
+package com.muradnajafli.contactapp
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

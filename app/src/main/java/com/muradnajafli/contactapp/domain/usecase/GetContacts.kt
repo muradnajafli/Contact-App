@@ -1,7 +1,7 @@
-package com.example.contactapp.domain.usecase
+package com.muradnajafli.contactapp.domain.usecase
 
-import com.example.contactapp.domain.model.Contact
-import com.example.contactapp.domain.repository.ContactsRepository
+import com.muradnajafli.contactapp.domain.model.Contact
+import com.muradnajafli.contactapp.domain.repository.ContactsRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

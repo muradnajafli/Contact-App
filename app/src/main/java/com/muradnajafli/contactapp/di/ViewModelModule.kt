@@ -1,8 +1,8 @@
-package com.example.contactapp.di
+package com.muradnajafli.contactapp.di
 
-import com.example.contactapp.domain.repository.ContactsRepository
-import com.example.contactapp.domain.usecase.GetContactsUseCase
-import com.example.contactapp.domain.usecase.GetContactsUseCaseImpl
+import com.muradnajafli.contactapp.domain.repository.ContactsRepository
+import com.muradnajafli.contactapp.domain.usecase.GetContactsUseCase
+import com.muradnajafli.contactapp.domain.usecase.GetContactsUseCaseImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

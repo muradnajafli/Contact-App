@@ -1,7 +1,7 @@
-package com.example.contactapp.di
+package com.muradnajafli.contactapp.di
 
-import com.example.contactapp.data.repository.ContactsRepositoryImpl
-import com.example.contactapp.domain.repository.ContactsRepository
+import com.muradnajafli.contactapp.data.repository.ContactsRepositoryImpl
+import com.muradnajafli.contactapp.domain.repository.ContactsRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

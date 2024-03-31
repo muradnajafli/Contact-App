@@ -1,4 +1,4 @@
-package com.example.contactapp.di
+package com.muradnajafli.contactapp.di
 
 import android.content.ContentResolver
 import android.content.Context

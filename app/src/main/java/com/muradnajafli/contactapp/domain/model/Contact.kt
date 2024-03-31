@@ -1,4 +1,4 @@
-package com.example.contactapp.domain.model
+package com.muradnajafli.contactapp.domain.model
 
 data class Contact(
     val name: String,

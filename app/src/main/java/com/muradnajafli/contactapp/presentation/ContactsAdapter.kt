@@ -1,4 +1,4 @@
-package com.example.contactapp.presentation
+package com.muradnajafli.contactapp.presentation
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -7,8 +7,8 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.contactapp.domain.model.Contact
-import com.example.contactapp.databinding.ItemContactBinding
+import com.muradnajafli.contactapp.domain.model.Contact
+import com.muradnajafli.contactapp.databinding.ItemContactBinding
 
 class ContactsAdapter : RecyclerView.Adapter<ContactsAdapter.ContactsViewHolder>() {
     private var contactList: List<Contact> = emptyList()

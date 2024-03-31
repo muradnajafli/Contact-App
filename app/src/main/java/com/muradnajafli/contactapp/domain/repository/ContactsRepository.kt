@@ -1,6 +1,6 @@
-package com.example.contactapp.domain.repository
+package com.muradnajafli.contactapp.domain.repository
 
-import com.example.contactapp.domain.model.Contact
+import com.muradnajafli.contactapp.domain.model.Contact
 import kotlinx.coroutines.flow.Flow
 
 interface ContactsRepository {

@@ -1,9 +1,9 @@
-package com.example.contactapp.presentation
+package com.muradnajafli.contactapp.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.contactapp.domain.model.Contact
-import com.example.contactapp.domain.usecase.GetContactsUseCase
+import com.muradnajafli.contactapp.domain.model.Contact
+import com.muradnajafli.contactapp.domain.usecase.GetContactsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

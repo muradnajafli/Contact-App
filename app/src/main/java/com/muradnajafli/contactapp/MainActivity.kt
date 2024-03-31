@@ -1,12 +1,12 @@
-package com.example.contactapp
+package com.muradnajafli.contactapp
 
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
-import com.example.contactapp.databinding.ActivityMainBinding
-import com.example.contactapp.presentation.ContactsFragment
+import com.muradnajafli.contactapp.databinding.ActivityMainBinding
+import com.muradnajafli.contactapp.presentation.ContactsFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 

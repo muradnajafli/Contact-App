@@ -1,9 +1,9 @@
-package com.example.contactapp.data.repository
+package com.muradnajafli.contactapp.data.repository
 
 import android.content.ContentResolver
 import android.provider.ContactsContract
-import com.example.contactapp.domain.model.Contact
-import com.example.contactapp.domain.repository.ContactsRepository
+import com.muradnajafli.contactapp.domain.model.Contact
+import com.muradnajafli.contactapp.domain.repository.ContactsRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
