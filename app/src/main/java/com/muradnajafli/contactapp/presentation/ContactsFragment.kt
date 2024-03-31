@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.contactapp.databinding.FragmentRecyclerViewBinding
+import com.example.contactapp.databinding.FragmentContactsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -21,7 +21,7 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class ContactsFragment : Fragment() {
 
-    private var _binding: FragmentRecyclerViewBinding? = null
+    private var _binding: FragmentContactsBinding? = null
     private val binding get() = _binding!!
     private val viewModel: ContactsViewModel by viewModels()
     private lateinit var contactsAdapter: ContactsAdapter
@@ -40,7 +40,7 @@ class ContactsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentRecyclerViewBinding.inflate(inflater, container, false)
+        _binding = FragmentContactsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -71,8 +71,8 @@ class ContactsFragment : Fragment() {
 
     private fun observeViewModel() {
         viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.contactList.collect {
-                contactsAdapter.setContactsList(it)
+            viewModel.contactList.collect { contactList ->
+                contactsAdapter.setContactsList(contactList)
             }
         }
     }

@@ -8,12 +8,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.contactapp.domain.model.Contact
-import com.example.contactapp.databinding.ContactItemBinding
+import com.example.contactapp.databinding.ItemContactBinding
 
 class ContactsAdapter : RecyclerView.Adapter<ContactsAdapter.ContactsViewHolder>() {
     private var contactList: List<Contact> = emptyList()
 
-    class ContactsViewHolder(private val binding: ContactItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ContactsViewHolder(private val binding: ItemContactBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(contact: Contact) {
             binding.nameTextView.text = contact.name
             binding.numberTextView.text = contact.phoneNumber
@@ -33,7 +33,7 @@ class ContactsAdapter : RecyclerView.Adapter<ContactsAdapter.ContactsViewHolder>
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactsViewHolder {
-        val binding = ContactItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemContactBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ContactsViewHolder(binding)
     }
 
@@ -49,4 +49,5 @@ class ContactsAdapter : RecyclerView.Adapter<ContactsAdapter.ContactsViewHolder>
         contactList = contacts
         notifyDataSetChanged()
     }
+
 }
